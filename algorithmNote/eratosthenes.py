@@ -21,3 +21,7 @@ for i in range(2, int(math.sqrt(n)) + 1): # 2부터 n의 제곱근까지의 모�
 for i in range(2, n + 1):
     if array[i]:
         print(i, end = " ")
+
+
+# 에라토스데네스의 체 알고리즘 의 시간 복잡도는 O(NloglogN)으로 사실상 선형 시간에 동작할 정도로 빠르다. 
+# 메모리가 많이 필요하다는 단점
