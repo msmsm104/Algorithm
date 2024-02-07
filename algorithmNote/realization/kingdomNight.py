@@ -36,8 +36,3 @@ for move in moves:
         count += 1
 
 print(count)
-
-
-
-
-
