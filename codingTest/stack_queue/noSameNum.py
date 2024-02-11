@@ -1,4 +1,5 @@
 # noSameNum.py
+# 중복값 삭제 알고리즘
 
 from collections import deque
 
