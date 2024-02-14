@@ -11,6 +11,7 @@ def delDuplication(data):
     for x in data:
         if x not in answer:
             answer += x
+
     return answer
 
 print(delDuplication(my_string))
