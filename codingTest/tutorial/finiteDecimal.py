@@ -2,7 +2,18 @@
 # 유한소수 판별하기
 
 # 입력값
-a, b = 12, 21
+a, b = 120, 210
+
+# 소인수 분해 함수 정의
+def factorization(all_array, a_array, a):
+    # a에 대해 소인수 분해
+    for i in all_array:
+        while a % i == 0:
+            a = a // i
+            a_array.append(i)
+        if i > a:
+            break
+    return a_array
 
 
 # 함수로 정의 
@@ -27,18 +38,20 @@ def solution(a, b):
 
 
     # a에 대해 소인수 분해
-    for i in all_array:
-        while a % i == 0:
-            a = a // i
-            a_array.append(i)
-        if i > a:
-            break
-    for i in all_array:
-        while b % i == 0:
-            b = b // i
-            b_array.append(i)
-        if i > b:
-            break
+    a_array = factorization(all_array, a_array, a)
+    b_array = factorization(all_array, b_array, b)
+    # for i in all_array:
+    #     while a % i == 0:
+    #         a = a // i
+    #         a_array.append(i)
+    #     if i > a:
+    #         break
+    # for i in all_array:
+    #     while b % i == 0:
+    #         b = b // i
+    #         b_array.append(i)
+    #     if i > b:
+    #         break
 
     print(a_array)
     print(b_array)
@@ -56,10 +69,19 @@ def solution(a, b):
 
     result = set(list(filter(lambda x: x != -1, b_array)))
 
+    print(result)
+
     # 분모 - b_array의 set 값에 2, 5만 포함
-    print({2, 5} == result or {2} == result or {5} == result)
+    print({2, 5} == result or {2} == result or {5} == result or {} == result)
+
+    # 정수인 경우
+    if len(result) == 0:
+        return 1
+    else:
+        return 2 - int({2, 5} == result or {2} == result or {5} == result)
 
 
 ## 테스트 케이스에서 오답이 발생하는 경우가 나옴
+## 해결 - 기약분수로 나타내었을때 결과값이 정수인 경우 -> 유한소수로 분류
     
-    
+print(solution(12, 2))
