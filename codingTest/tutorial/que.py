@@ -37,7 +37,18 @@ def solution(priorities, location):
 
     return result
 
-print(solution([2,1,3,2], 2))
+def solution_2(priorities, location):
+    queue = deque([(i, p) for i, p in enumerate(priorities)])
+    answer = 0
+    while True:
+        current = queue.popleft()
+        if any(current[1] < q[1] for q in queue):
+            queue.append(current)
+        else:
+            answer += 1
+            if current[0] == location:
+                return answer
+
 
 
 
