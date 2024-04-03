@@ -24,9 +24,13 @@ def get_valid_input():
             print("잘못된 입력입니다. 정수를 입력해 주세요.")
 
 if __name__=="__main__":
-    # 입력값 (숫자_정수)
-    input_number = get_valid_input()
-    print(f"입력값 : {input_number}")
-
-    # 출력값 (팩토리얼 수식)
-    print(f"{input_number}! = {factorial(input_number)}")
+    # 반복 입력 지원
+    while True:
+        # 입력값 (숫자_정수)
+        input_number = get_valid_input()
+        # 출력값 (팩토리얼 수식)
+        print(f"{input_number}! = {factorial(input_number)}")
+        continue_or_quit = input("계속하려면 'y', 종료하려면 다른 키를 누르세요: ")
+        if continue_or_quit != "y":
+            break
+        
