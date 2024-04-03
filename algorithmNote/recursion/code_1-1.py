@@ -3,20 +3,22 @@
 
 # 점화식을 통한 재귀함수 구현
 # n! = (n-1)! x n
+class FactorialCalculator:
+    def __init__(self):
+        self.factorial_cache = {}
 
-# 반복 입력 기능에 따른 캐시 지원
-factorial_cache = {}
-
-# 함수 구현
-def factorial(n):
-    if n == 0:
-        return 1
-    elif n in factorial_cache:
-        return factorial_cache[n]
-    else:
-        result = factorial(n-1) * n
-        factorial_cache[n] = result
-        return result
+    def factorial(self, n):
+        if n < 0:
+            raise ValueError("음수의 팩토리얼은 정의되지 않습니다.")
+        elif n == 0:
+            return 1
+        elif n in self.factorial_cache:
+            return self.factorial_cache[n]
+        else:
+            result = self.factorial(n-1) * n
+            self.factorial_cache[n] = result
+            return result
+        
     
 # 입력 유효성 검사
 def get_valid_input():
@@ -32,12 +34,13 @@ def get_valid_input():
 
 if __name__=="__main__":
     # 반복 입력 지원
+    calculator = FactorialCalculator()
     while True:
         # 입력값 (숫자_정수)
         input_number = get_valid_input()
+        result = calculator.factorial(input_number)
         # 출력값 (팩토리얼 수식)
-        print(f"{input_number}! = {factorial(input_number)}")
+        print(f"{input_number}! = {result}")
         continue_or_quit = input("계속하려면 'y', 종료하려면 다른 키를 누르세요: ")
-        if continue_or_quit != "y":
+        if continue_or_quit.lower() != "y":
             break
-        
