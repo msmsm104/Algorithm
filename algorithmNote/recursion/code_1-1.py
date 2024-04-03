@@ -10,10 +10,22 @@ def factorial(n):
         return 1
     else:
         return factorial(n-1) * n
+    
+# 입력 유효성 검사
+def get_valid_input():
+    while True:
+        try:
+            input_number = int(input("숫자를 입력해 주세요: "))
+            if input_number < 0:
+                print("음수는 입력할 수 없습니다. 다시 입력해 주세요.")
+            else:
+                return input_number
+        except ValueError:
+            print("잘못된 입력입니다. 정수를 입력해 주세요.")
 
 if __name__=="__main__":
     # 입력값 (숫자_정수)
-    input_number = int(input("숫자를 입력해 주세요 : "))
+    input_number = get_valid_input()
     print(f"입력값 : {input_number}")
 
     # 출력값 (팩토리얼 수식)
