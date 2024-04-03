@@ -4,12 +4,19 @@
 # 점화식을 통한 재귀함수 구현
 # n! = (n-1)! x n
 
+# 반복 입력 기능에 따른 캐시 지원
+factorial_cache = {}
+
 # 함수 구현
 def factorial(n):
     if n == 0:
         return 1
+    elif n in factorial_cache:
+        return factorial_cache[n]
     else:
-        return factorial(n-1) * n
+        result = factorial(n-1) * n
+        factorial_cache[n] = result
+        return result
     
 # 입력 유효성 검사
 def get_valid_input():
