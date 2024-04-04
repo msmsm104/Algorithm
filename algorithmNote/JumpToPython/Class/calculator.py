@@ -25,20 +25,25 @@ class FourCal:
         result = self.first / self.second
         return result
     
-if __name__=="__main__":
-    a = FourCal(4, 2) # 객체 a 생성, a는 FourCal 클래스의 인스턴스
-    b = FourCal(3, 8)
-    # a.setdata(4, 2)
-    # b.setdata(3, 8)
+    
+class MoreFourCal(FourCal):     # FourCal 클래스를 상속
+    def pow(self):
+        result = self.first ** self.second
+        return result
+    
 
-    print("객체 a에 대한 사친연산")
+class SafeFourCal(FourCal):     # FourCal 클래스를 상속
+    def div(self):
+        if self.second == 0:
+            return 0
+        else:
+            result = self.first / self.second
+            return result
+
+if __name__=="__main__":
+    a = SafeFourCal(4, 0)
+
     print(a.add())
     print(a.sub())
     print(a.mul())
     print(a.div())
-    print("")
-    print("객체 b에 대한 사친연산")
-    print(b.add())
-    print(b.sub())
-    print(b.mul())
-    print(b.div())
