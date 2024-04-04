@@ -2,9 +2,12 @@
 # 사칙연산 클래스 생성
 
 class FourCal:
-    def setdata(self, first, second):
-        self.first = first      # 객체 self의 객체변수 first 생성
-        self.second = second    # 객체 self의 객체변수 second 생성
+    def __init__(self, first, second): # 생성자를 통해 초기값 설정
+        self.first = first
+        self.second = second
+    # def setdata(self, first, second):
+    #     self.first = first      # 객체 self의 객체변수 first 생성
+    #     self.second = second    # 객체 self의 객체변수 second 생성
     
     def add(self):
         result = self.first + self.second
@@ -23,10 +26,10 @@ class FourCal:
         return result
     
 if __name__=="__main__":
-    a = FourCal() # 객체 a 생성, a는 FourCal 클래스의 인스턴스
-    b = FourCal()
-    a.setdata(4, 2)
-    b.setdata(3, 8)
+    a = FourCal(4, 2) # 객체 a 생성, a는 FourCal 클래스의 인스턴스
+    b = FourCal(3, 8)
+    # a.setdata(4, 2)
+    # b.setdata(3, 8)
 
     print("객체 a에 대한 사친연산")
     print(a.add())
