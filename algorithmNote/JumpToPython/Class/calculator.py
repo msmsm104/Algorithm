@@ -2,37 +2,40 @@
 # 사칙연산 클래스 생성
 
 class FourCal:
-    pass
-    # def __init__(self):
-    #     self.num1 = 0
-    #     self.num2 = 0
+    def setdata(self, first, second):
+        self.first = first      # 객체 self의 객체변수 first 생성
+        self.second = second    # 객체 self의 객체변수 second 생성
+    
+    def add(self):
+        result = self.first + self.second
+        return result
 
-    # def setdata(self, a, b):
-    #     self.num1 = a
-    #     self.num2 = b
+    def sub(self):
+        result = self.first - self.second
+        return result
     
-    # def add(self):
-    #     result = self.num1 + self.num2
-    #     return result
-
-    # def sub(self):
-    #     result = self.num1 - self.num2
-    #     return result
+    def mul(self):
+        result = self.first * self.second
+        return result
     
-    # def mul(self):
-    #     result = self.num1 * self.num2
-    #     return result
-    
-    # def div(self):
-    #     result = self.num1 / self.num2
-    #     return result
+    def div(self):
+        result = self.first / self.second
+        return result
     
 if __name__=="__main__":
     a = FourCal() # 객체 a 생성, a는 FourCal 클래스의 인스턴스
-    print(type(a))
-    # a.setdata(4, 2)
+    b = FourCal()
+    a.setdata(4, 2)
+    b.setdata(3, 8)
 
-    # print(a.add())
-    # print(a.sub())
-    # print(a.mul())
-    # print(a.div())
+    print("객체 a에 대한 사친연산")
+    print(a.add())
+    print(a.sub())
+    print(a.mul())
+    print(a.div())
+    print("")
+    print("객체 b에 대한 사친연산")
+    print(b.add())
+    print(b.sub())
+    print(b.mul())
+    print(b.div())
